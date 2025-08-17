@@ -1,34 +1,44 @@
 "use client";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import proj2 from "../assets/proj2.jpg";
+import proj2 from "../assets/proj2.png";
 import proj3 from "../assets/proj3.png";
-import proj4 from "../assets/proj4.jpg";
+import proj4 from "../assets/proj4.png";
+import proj1 from "../assets/proj1.png"; 
 
 const projects = [
   {
+    
     title: "AI Chatbot Integration Platform",
     desc: "Integrated AI chatbot for intelligent PDF-based responses. Optimized data handling for large documents with Pandas. Ensured secure environment with Firebase and Dotenv. Created a seamless user interface with Streamlit.",
     devStack: "Streamlit, Python, Pandas, Firebase, Dotenv, LangChain (Gemini API)",
-    link: "#",
-    git: "#",
+    link: "https://ai-chatbot-integration-platform.streamlit.app/",
+    git: "https://github.com/Sumitshaw13/AI-Chatbot-Integration-Platform",
     src: proj4,
   },
   {
-    title: "Multi-Timezone Analog Clock",
-    desc: "Built an interactive analog clock displaying real-time across multiple time zones.",
-    devStack: "Python, Tkinter",
-    link: "#",
+    title: "Education Website",
+    desc: "Developed an educational website for course management, user registration, and secure payments.",
+    devStack: "MERN Stack (MongoDB, Express.js, React.js, Node.js), Node mailer, Razor pay",
+    link: "https://ias-desk.vercel.app/",
     git: "#",
     src: proj2,
   },
   {
-    title: "Portfolio Website",
-    desc: "xxxxx",
-    devStack: "React, Tailwind CSS, Next.js, Framer Motion",
-    link: "#",
-    git: "#",
+    title: "Realtime weather forecast",
+    desc: "Developed a real-time weather forecasting application using html, css and javascript.",
+    devStack: "html, css and javascript.",
+    link: "https://sumitshaw13.github.io/weather-website/",
+    git: "https://github.com/Sumitshaw13/weather-website",
     src: proj3,
+  },
+   {
+    title: "Portfolio Website",
+    desc: "A personal portfolio website to showcase my projects and skills  .",
+    devStack: " React, Tailwind CSS, Next.js, Framer Motion",
+    link: "https://portfolio-sumit-murex.vercel.app/",
+    git: "https://github.com/Sumitshaw13/portfol",
+    src: proj1, // Use your imported image
   },
 ];
 
@@ -56,8 +66,28 @@ const Portfolio = () => {
               <p className='text-xl text-orange-400 font-semibold'>{project.devStack}</p>
 
               <div className='w-64 h-[1px] bg-gray-400 my-4'></div>
-              <a href={project.link} className='mr-6 hover:text-orange-400'>Link</a>
-              <a href={project.git} className='hover:text-orange-400'>Git</a>
+              {project.link && project.link !== "#" && (
+                <a
+                  href={project.link}
+                  className='mr-6 hover:text-orange-400'
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={`Visit ${project.title} deployed site`}
+                >
+                  Link
+                </a>
+              )}
+              {project.git && project.git !== "#" && (
+                <a
+                  href={project.git}
+                  className='hover:text-orange-400'
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={`View ${project.title} source code on GitHub`}
+                >
+                  Git
+                </a>
+              )}
             </div>
 
             <div className='flex justify-center items-center'>
